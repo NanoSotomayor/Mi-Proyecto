@@ -1,8 +1,8 @@
 
 
-
 header {
     background-color: rgb(52,52,52);
+    padding: 0 80px;
 }
 
 header {
@@ -11,14 +11,40 @@ header {
 }
  header div {
     display: flex;
+    align-items: center;
  }
 
-.lista, .sesion{
-    font-size: 40px;
-    display: flex;
+.header-icons a {
+    text-decoration: none;
     color: rgb(233,227,201);
-    align-items: center;
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
 }
+
+.sesion {
+    padding: 0 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgb(233,227,201);
+    font-weight: 500;
+    font-size:larger;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link-prod , .header-icons {
+    padding: 30px;
+}
+
+.nav-link:hover , .header-icons a:hover , .logo:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
 
 .productos {
     display: flex;
@@ -26,7 +52,7 @@ header {
 
 .logo {
     width: 130px;
-    padding: 20px 50px;
+    transition: transform 0.3s ease-in-out;
 }
 
 
