@@ -1,10 +1,8 @@
-* {
-    /* font-family: sans-serif; */
-}
+
 
 header {
     background-color: rgb(52,52,52);
-    padding: 2rem;
+    padding: 1.5rem 6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,7 +23,7 @@ header {
     text-decoration: none;
     color: rgb(233,227,201);
     font-weight: 500;
-    font-size:larger;
+    font-size:1.2rem;
 }
 
 .nav-list li {
@@ -45,18 +43,26 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
-.nav-list li:hover , .logo:hover , .header-icons a:hover{
+.nav-list li:hover , .logo:hover , .header-icons a:hover , .open-menu:hover , .close-menu:hover{
     transform: scale(1.2);
 }
 
 .open-menu , .close-menu {
     display: none;
     border: 0;
+    color: rgb(233,227,201);
     font-size: 1.8rem;
     background-color: transparent;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Mayor que el carrusel */
 }
 
+@media (max-width: 900px) {
+    header {
+        padding: 1.5rem 4rem;
+    }
+}
 
 @media screen and (max-width: 750px) {
     .open-menu , .close-menu {
@@ -70,15 +76,16 @@ header {
         flex-direction: column;
         align-items: end;
         gap: 1rem;
-        position: absolute;
+        position: fixed; /* Se mantiene fijo en la pantalla */
         top: 0;
         right: 0;
         bottom: 0;
+        width: 250px; /* Ajusta según tu diseño */
         background-color: #1c1c1c;
-        padding: 2rem;
+        /* padding: 2rem; */
         box-shadow: 0 0 0 100vmax rgba(0,0,0,0.5);
+        z-index: 2000; /* Asegura que esté sobre el carrusel */
     }
-
 
     .nav.visible {
         opacity: 1;
@@ -93,39 +100,84 @@ header {
 }
 
 
-
-
-/* .productos {
-    display: flex;
-} */
-
+/* Contenedor principal */
 .hero {
     display: flex;
     height: 110vh;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    
-    color: rgb(233,227,201);
-    background-image: linear-gradient(
-        0deg,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
-    )
-    ,url(../img/img.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
+    color: rgb(233, 227, 201);
+    position: relative; /* Necesario para la separación del contenido */
+    overflow: hidden;
+}
+
+/* Contenedor del texto que se mantiene estático */
+.text-content {
+    z-index: 10; /* Asegura que el texto se mantenga por encima de las imágenes */
+    position: absolute; /* Lo posicionamos por encima del carrusel */
+    top: 50%; /* Ajusta la posición vertical según el diseño */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Centrado absoluto */
+    text-align: center;
+}
+
+.text-content h1 {
+    font-size: 5rem;
+}
+
+.text-content h4 {
+    font-size: 1rem;
+}
+
+/* Título y subtítulo con fondo semitransparente */
+.text-content h1, .text-content h4 {
+    background-color: rgba(52,52,52, 0.5); 
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Contenedor de las imágenes de fondo */
+.slider {
+    display: flex;
+    width: 400%; /* Ajusta según la cantidad de imágenes (4 imágenes = 400%) */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: slide 25s infinite alternate ease-in-out;
+}
+
+/* Cada imagen ocupa el 100% del tamaño del `.hero` */
+.slide {
+    width: 25%;
+    height: 100%;
     background-size: cover;
+    background-position: center;
+    flex: 1;
 }
 
-.hero h4 {
-    font-weight: 300;
+/* Asigna imágenes a cada slide */
+.slide:nth-child(1) { background-image: url('../img/imagen1.jpg'); }
+.slide:nth-child(2) { background-image: url('../img/imagen2.jpg'); }
+.slide:nth-child(3) { background-image: url('../img/imagen3.jpg'); }
+.slide:nth-child(4) { background-image: url('../img/imagen2.jpg'); }
+
+/* Animación para deslizar las imágenes */
+@keyframes slide {
+    0% { transform: translateX(0%); }      /* Primera imagen */
+    15% { transform: translateX(0%); }     /* Mantiene un poco */
+    
+    30% { transform: translateX(-25%); }   /* Segunda imagen */
+    50% { transform: translateX(-25%); }   /* Mantiene más tiempo */
+
+    60% { transform: translateX(-50%); }   /* Tercera imagen */
+    80% { transform: translateX(-50%); }   /* Mantiene más tiempo */
+
+    90% { transform: translateX(-75%); }   /* Cuarta imagen */
+    100% { transform: translateX(-75%); }  /* Termina en la última imagen */
 }
 
-.hero h1 {
-    font-size: 6rem;
-
-}
 
  button {
     margin: 30px 20px 30px 0;
@@ -134,36 +186,4 @@ header {
     font-size: 30px;
     color: rgb(233,227,201);
  }
-
-.buscar {
-    background-color: rgb(233,227,201);
-    margin: 40px 0;
-    border: 0;
- }
-
- h3 {
-    text-align: center;
-    padding-top: 40px;
- }
-
- .destacados {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
- }
-
-.prod {
-    display: flex;
-    flex-direction: column;
- }
-
- .img-prod {
-    width: 200px;
-    margin-top: 40px;
-    border: 1px solid white;
-    border-radius: 5px;
- }
-
-.prod p {
-    text-align: center;
-}
+ 
