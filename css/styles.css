@@ -94,91 +94,19 @@ header {
 
 
 
-/* TEMPORALMENTE
- header div {
+
+/* .productos {
     display: flex;
-    align-items: center;
- }
-
-.header-icons a {
-    text-decoration: none;
-    color: rgb(233,227,201);
-    font-size: 30px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.sesion {
-    padding: 0 30px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: rgb(233,227,201);
-    font-weight: 500;
-    font-size:larger;
-    transition: transform 0.3s ease-in-out;
-}
-
-.nav-link-prod , .header-icons {
-    padding: 30px;
-}
-
-.nav-link:hover , .header-icons a:hover , .logo:hover {
-    transform: scale(1.1);
-}
-
-.abrir-menu {
-    display: none;
 } */
-
-/* @media screen and (max-width: 800px) {
-    .abrir-menu {
-        display: block;
-    }
-
-    .header-icons, .nav {
-        display: none;
-    }
-
-     .nav {
-        position: absolute;
-        top: 0;
-        right: 0;
-    
-    }
-    .nav-link {
-        flex-direction: column;
-        align-items: end;
-    }
-
-    
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-.productos {
-    display: flex;
-}
-
-
-
 
 .hero {
     display: flex;
-    height: 90vh;
+    height: 110vh;
     align-items: center;
-    /* text-align: center; */
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
+    
+    color: rgb(233,227,201);
     background-image: linear-gradient(
         0deg,
         rgba(0,0,0,0.5),
@@ -188,8 +116,17 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.hero h4 {
+    font-weight: 300;
+}
+
+.hero h1 {
+    font-size: 6rem;
 
 }
+
  button {
     margin: 30px 20px 30px 0;
     border: 0;
